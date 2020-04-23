@@ -22,7 +22,7 @@ import {ConfigService} from './config';
 export class AssetsService {
   private readonly assetsPath_ = 'assets/images';
   private appLogoSvg_ = 'kubernetes-logo.svg';
-  private readonly appLogoTextSvg_ = 'solutec-logo-text.svg';
+  private readonly appLogoTextSvg_ = 'kubernetes-logo-text.svg';
   private readonly appLogoIcon_ = 'kd-logo';
   private readonly appLogoTextIcon_ = 'kd-logo-text';
 
