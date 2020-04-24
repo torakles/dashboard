@@ -7,6 +7,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "src/app/frontend",
+    "resolveJsonModule": true, 
+    "esModuleInterop": true,
     "paths": {
       "@api/*": ["typings/*"]
     },
@@ -19,7 +21,7 @@
     "experimentalDecorators": true,
     "noImplicitReturns": true,
     "noUnusedParameters": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "lib": [
       "es2017",
       "dom"

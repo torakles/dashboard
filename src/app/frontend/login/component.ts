@@ -15,6 +15,7 @@
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Component, NgZone, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ConfigService} from 'common/services/global/config';
 import {
   AuthenticationMode,
   EnabledAuthenticationModes,
@@ -41,9 +42,12 @@ enum LoginModes {
 })
 export class LoginComponent implements OnInit {
   loginModes = LoginModes;
-  selectedAuthenticationMode = LoginModes.Kubeconfig;
+  selectedAuthenticationMode = LoginModes.Token;
   errors: KdError[] = [];
 
+  localStorageToken = undefined;
+  urlEnv = '';
+  urlLogin = '';
   private enabledAuthenticationModes_: AuthenticationMode[] = [];
   private isLoginSkippable_ = false;
   private kubeconfig_: string;
@@ -58,9 +62,17 @@ export class LoginComponent implements OnInit {
     private readonly ngZone_: NgZone,
     private readonly route_: ActivatedRoute,
     private readonly pluginConfigService_: PluginsConfigService,
+    public config: ConfigService,
   ) {}
 
   ngOnInit(): void {
+    this.localStorageToken = localStorage.getItem('token');
+    this.token_ = this.localStorageToken;
+    localStorage.clear();
+
+    this.urlEnv = window.location + '/oidc/';
+    this.urlLogin = this.urlEnv.replace('/#/login', '');
+
     this.http_
       .get<EnabledAuthenticationModes>('api/v1/login/modes')
       .subscribe((enabledModes: EnabledAuthenticationModes) => {
@@ -68,22 +80,24 @@ export class LoginComponent implements OnInit {
         this.enabledAuthenticationModes_.push(LoginModes.Kubeconfig);
         this.selectedAuthenticationMode = this.enabledAuthenticationModes_[0] as LoginModes;
       });
-
     this.http_
       .get<LoginSkippableResponse>('api/v1/login/skippable')
       .subscribe((loginSkippableResponse: LoginSkippableResponse) => {
         this.isLoginSkippable_ = loginSkippableResponse.skippable;
       });
-
     this.route_.paramMap.pipe(map(() => window.history.state)).subscribe((state: StateError) => {
       if (state.error) {
         this.errors = [state.error];
       }
     });
+    if (this.token_ !== null) {
+      this.login();
+    }
   }
 
   getEnabledAuthenticationModes(): AuthenticationMode[] {
-    return this.enabledAuthenticationModes_;
+    //return this.enabledAuthenticationModes_;
+    return ['token'];
   }
 
   login(): void {
@@ -153,5 +167,19 @@ export class LoginComponent implements OnInit {
       default:
         return {} as LoginSpec;
     }
+  }
+  applyStyles() {
+    const styles = {'background-color': this.config.getColor()};
+    return styles;
+  }
+  applyColor() {
+    const styles = {color: this.config.getColor()};
+    return styles;
+  }
+  getTitle() {
+    return this.config.getTitle();
+  }
+  getColor() {
+    return this.config.getColor();
   }
 }

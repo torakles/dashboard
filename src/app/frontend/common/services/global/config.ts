@@ -62,7 +62,11 @@ export class ConfigService {
     return this.customConfig_;
   }
   getColor(): string {
-    return this.customConfig_['color'];
+    if (this.customConfig_['color']) {
+      return this.customConfig_['color'];
+    } else {
+      return 'blue';
+    }
   }
   getTitle(): string {
     return this.customConfig_['title'];
