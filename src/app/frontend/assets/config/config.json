@@ -1,5 +1,33 @@
 {
   "title" : "CLUSTER BLACK",
   "logo" : "kubernetes-logo.svg" ,
-  "color" : "rgb(0, 0, 0)"
+  "color" : "rgb(0, 0, 0)",
+  "menus": [
+    {
+      "label": "Menu 1",
+      "links": [
+        {
+          "label":"Google ES",
+          "url":"https://www.google.es"
+        },
+        {
+          "label":"Google FR",
+          "url":"https://www.google.fr"
+        }
+      ]
+    },
+    {
+      "label": "Menu 2",
+      "links": [
+        {
+          "label":"Google DE",
+          "url":"https://www.google.de"
+        },
+        {
+          "label":"Google UK",
+          "url":"https://www.google.uk"
+        }
+      ]
+    }
+  ]
 }

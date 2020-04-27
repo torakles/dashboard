@@ -2675,7 +2675,7 @@
       </target>
         <context-group purpose="location">
           <context context-type="sourcefile">../src/app/frontend/chrome/nav/template.html</context>
-          <context context-type="linenumber">163</context>
+          <context context-type="linenumber">182</context>
         </context-group>
       </trans-unit>
       <trans-unit id="03511cfe5e28ed3380ab198c13cf62ebde1e89e6" datatype="html">
@@ -2685,7 +2685,7 @@
       </target>
         <context-group purpose="location">
           <context context-type="sourcefile">../src/app/frontend/chrome/nav/template.html</context>
-          <context context-type="linenumber">175</context>
+          <context context-type="linenumber">194</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c2fa735eb6b1b2c10171c5acb818f6e0975a9406" datatype="html">
@@ -2695,7 +2695,7 @@
       </target>
         <context-group purpose="location">
           <context context-type="sourcefile">../src/app/frontend/chrome/nav/template.html</context>
-          <context context-type="linenumber">181</context>
+          <context context-type="linenumber">200</context>
         </context-group>
       </trans-unit>
       <trans-unit id="01269ce8051398188d50367ead1831407e77d504" datatype="html">

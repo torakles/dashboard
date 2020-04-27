@@ -16,6 +16,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from '../common/services/guard/auth';
 import {ChromeComponent} from './component';
+import {RedirectGuard} from './redirectGuard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/overview', pathMatch: 'full'},
@@ -181,6 +182,11 @@ const routes: Routes = [
         path: 'search',
         loadChildren: () => import('search/module').then(m => m.SearchModule),
         runGuardsAndResolvers: 'always',
+      },
+      {
+        path: 'custom',
+        canActivate: [RedirectGuard],
+        component: RedirectGuard,
       },
     ],
   },

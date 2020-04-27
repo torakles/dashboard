@@ -71,4 +71,7 @@ export class ConfigService {
   getTitle(): string {
     return this.customConfig_['title'];
   }
+  getMenus(): JSON {
+    return this.customConfig_['menus'];
+  }
 }
