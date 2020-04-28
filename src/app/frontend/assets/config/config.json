@@ -4,28 +4,32 @@
   "color" : "rgb(0, 0, 0)",
   "menus": [
     {
-      "label": "Menu 1",
+      "label": "No redirect links",
       "links": [
         {
-          "label":"Google ES",
-          "url":"https://www.google.es"
+          "redirect":false,
+          "label":"Validator",
+          "url":"http://validator.w3.org/"
         },
         {
-          "label":"Google FR",
-          "url":"https://www.google.fr"
+          "redirect":false,
+          "label":"Wikipedia",
+          "url":"https://en.wikipedia.org/wiki/Korobeiniki"
         }
       ]
     },
     {
-      "label": "Menu 2",
+      "label": "Redirect links",
       "links": [
         {
-          "label":"Google DE",
-          "url":"https://www.google.de"
+          "redirect":true,
+          "label":"Google Maps",
+          "url":"https://www.google.es/maps/"
         },
         {
-          "label":"Google UK",
-          "url":"https://www.google.uk"
+          "redirect":true,
+          "label":"StackOverflow",
+          "url":"https://stackoverflow.com/"
         }
       ]
     }

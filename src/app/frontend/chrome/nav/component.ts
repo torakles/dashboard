@@ -67,8 +67,13 @@ export class NavComponent implements OnInit {
             } else {
               for (const j in links) {
                 if (links.hasOwnProperty(j)) {
-                  if (!links[j]['label'] || !links[j]['url']) {
-                    console.log('Json format error (missing link label and/or url)');
+                  if (
+                    !links[j]['label'] ||
+                    !links[j]['url'] ||
+                    links[j]['redirect'] === undefined ||
+                    typeof links[j]['redirect'] !== 'boolean'
+                  ) {
+                    console.log('Json format error (missing link label or url or redirect)');
                     return false;
                   } else {
                     links[j]['id'] = 'nav-' + links[j]['label'].toLowerCase();

@@ -35,6 +35,9 @@ export class ConfigService {
     });
     this.readJson().subscribe(config => {
       this.customConfig_ = config;
+      if (!this.customConfig_) {
+        window.location.reload();
+      }
     });
   }
 
@@ -62,7 +65,7 @@ export class ConfigService {
     return this.customConfig_;
   }
   getColor(): string {
-    if (this.customConfig_['color']) {
+    if (this.customConfig_) {
       return this.customConfig_['color'];
     } else {
       return 'blue';
