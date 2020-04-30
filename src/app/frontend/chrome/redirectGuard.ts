@@ -1,11 +1,11 @@
 import {Injectable, Component} from '@angular/core';
-import {CanActivate, ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
+import {CanActivate, ActivatedRouteSnapshot, Router} from '@angular/router';
 
 @Injectable()
 export class RedirectGuard implements CanActivate {
   constructor(private router: Router) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  canActivate(route: ActivatedRouteSnapshot): boolean {
     //console.log(state);
     if (route.params['redirect'] === 'true') {
       window.location.href = route.params['externalUrl'];
