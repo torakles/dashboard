@@ -201,7 +201,7 @@ export class NamespaceSelectorComponent implements OnInit, OnDestroy {
   private checkNamespaces_(namespaceName: string): void {
     console.log('Checking namespaces');
     this.namespaceDetail_.get(this.endpoint_.detail(), namespaceName).subscribe(
-      (d: NamespaceDetail) => {
+      () => {
         if (this.namespaces.indexOf(namespaceName) === -1) {
           console.log(namespaceName + ' is allowed. Adding');
           this.namespaces.push(namespaceName);
